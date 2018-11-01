@@ -10,7 +10,7 @@ script:
   - echo "no tests!"
 after_success:
   - docker --version
-  - pip install --user awscli
+  - pip install awscli
   - export PATH=$PATH:$HOME/.local/bin
   - eval $(aws ecr get-login --region us-west-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars  
   - docker build -t node-oauth .
