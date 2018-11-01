@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/login-portal/bin/www",
+            "program": "${workspaceFolder}/bin/www",
             "envFile": "${workspaceFolder}/.env"            
         }
     ]
