@@ -1,20 +1,22 @@
 sudo: required
-language: node_js
+language: python
+python:
+  - "2.7.13"
 services:
-- docker
+  - docker
 install:
-- echo "install nothing!"
+  - echo "install nothing!"
 script:
-- echo "no tests!"
+  - echo "no tests!"
 after_success:
-- docker --version
-- pip install --user awscli
-- export PATH=$PATH:$HOME/.local/bin
-- eval $(aws ecr get-login --region us-west-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars  
-- docker build -t node-oauth .
-- docker tag node-oauth:latest 889260130147.dkr.ecr.us-west-2.amazonaws.com/node-oauth:latest
-- docker push 889260130147.dkr.ecr.us-west-2.amazonaws.com/node-oauth:latest
+  - docker --version
+  - pip install --user awscli
+  - export PATH=$PATH:$HOME/.local/bin
+  - eval $(aws ecr get-login --region us-west-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars  
+  - docker build -t node-oauth .
+  - docker tag node-oauth:latest 889260130147.dkr.ecr.us-west-2.amazonaws.com/node-oauth:latest
+  - docker push 889260130147.dkr.ecr.us-west-2.amazonaws.com/node-oauth:latest
 env:
   global:
-  - secure: iRauXBIg8C52Y34ZhbKBXvvaRzNMwqk/IhtTJyJioUj+0HSJ5Vyryj89qOkZasAZJ29y84BGSz18DMjMwrlggsnkVqSuYxWO4vF5zssvdingI4FIVQaGarYMFYptfqsjDlRpa/HQIzTDtNS+N5AM46EVfWSU1xIHA6pQr/RFexOq1aIJIEmhb+Qfc7PWUy2xqIRMXKTPRvS1l31PD8TWopHDG9L68QX2jEkesl0vZvRpQ5CVtL8Pa3r04Zm3o8WGlZsyXWGDWr/3ha60wtazzZKIeUq9TlMfiFKjUx2pXd8rkd1kTgj8+LUMWQS6MWMrPQoLDBrKZQFuuXCEHq+IfkeD9pftohw7Qz0mbtBUSCXyH/euQdV6NOqrDs7P7SMOLfDCMfhtfdyI6fOLxvxbrJwxZBPdg4QBB5DPGZb0WYQmX7Ia7lkRS7uIT2E86u2TNuF/Wf2QGPdsx0KYBl+Z8kdT2hgYNgp34kJwyf5Uhe3YJVR4xEzus//HORCUNAASxsbxVwzJuU9HzFf7EcYO89i7cRcdFMHW4+t0CNwJIJRsDFw/6Fk1+88/BmlaQAxh2NKpdrkFwaVqgFnnuLHcu84w+3TiDMAvA4dAnO5osIUPxrKiqQjLwAw1B9s8IoUO/aCvw73pPn5+Vanlno/On3EJTR+rwjpiyZZ0Tbi+NLU=
-  - secure: MOtW1vsSSzQhO7Bslw5hMGVkY1cMZzf41mZxejsP8Ety5cMPip13YMfX4IbRQ+54J5CQjmNleDsN57s+AovZ5fX7kNhn7hPQMcbApcOWrn+6jj5xH4AZapbymeW8xbrwrPBO9hEK9+EG2DQERxiVX6WQYOw5n96W/zaepwpar9HbcmPXgDWlEBT4wJLNvqHSS3HLb/tVteIK49F/AMAFmBk3VCVwdlfYZO1JoD4nUHdxEk3uZDVm6nbyl6gEm89HyOFPnXCjiH+NOmtie2TUHZntp0mYCNVGMBSdB8AnJWe4xIfD3cyIOM3lGfwBAKzqsdbPYYxAFiMoqKji1qrIS2ZkSEm/OLdNYO8iGEyFL1CYVNJB8dBUOwHBD/b6FJ+yDxbtuAFElKAIKNRETH13ZqCBAEb0U6k5o6b3mHkGkjML3JlhjzYftP45H5GYKNvXWvtyqqDOfzpM+sVXxebBbFuBnFM5M9flJcb3GKMwEs6LTsp4R26GC0Ohv9s3Z+iNlTb7T7DG0zmavlWPVcYBygODt8gk+b/vScrkbKbs+01FRJp6bDVK5IhktWGSrpVkZh3Ay1/H0Z/07ShjFjpOKmenaGuw8CKyf9yqOGg05yYwGPMj6uRJ0zp5aX45AqJe2qJ6QmV0DDtFImf+PF5qvx8hrCz3unJC1cqamQsW42o=
+    - secure: iRauXBIg8C52Y34ZhbKBXvvaRzNMwqk/IhtTJyJioUj+0HSJ5Vyryj89qOkZasAZJ29y84BGSz18DMjMwrlggsnkVqSuYxWO4vF5zssvdingI4FIVQaGarYMFYptfqsjDlRpa/HQIzTDtNS+N5AM46EVfWSU1xIHA6pQr/RFexOq1aIJIEmhb+Qfc7PWUy2xqIRMXKTPRvS1l31PD8TWopHDG9L68QX2jEkesl0vZvRpQ5CVtL8Pa3r04Zm3o8WGlZsyXWGDWr/3ha60wtazzZKIeUq9TlMfiFKjUx2pXd8rkd1kTgj8+LUMWQS6MWMrPQoLDBrKZQFuuXCEHq+IfkeD9pftohw7Qz0mbtBUSCXyH/euQdV6NOqrDs7P7SMOLfDCMfhtfdyI6fOLxvxbrJwxZBPdg4QBB5DPGZb0WYQmX7Ia7lkRS7uIT2E86u2TNuF/Wf2QGPdsx0KYBl+Z8kdT2hgYNgp34kJwyf5Uhe3YJVR4xEzus//HORCUNAASxsbxVwzJuU9HzFf7EcYO89i7cRcdFMHW4+t0CNwJIJRsDFw/6Fk1+88/BmlaQAxh2NKpdrkFwaVqgFnnuLHcu84w+3TiDMAvA4dAnO5osIUPxrKiqQjLwAw1B9s8IoUO/aCvw73pPn5+Vanlno/On3EJTR+rwjpiyZZ0Tbi+NLU=
+    - secure: MOtW1vsSSzQhO7Bslw5hMGVkY1cMZzf41mZxejsP8Ety5cMPip13YMfX4IbRQ+54J5CQjmNleDsN57s+AovZ5fX7kNhn7hPQMcbApcOWrn+6jj5xH4AZapbymeW8xbrwrPBO9hEK9+EG2DQERxiVX6WQYOw5n96W/zaepwpar9HbcmPXgDWlEBT4wJLNvqHSS3HLb/tVteIK49F/AMAFmBk3VCVwdlfYZO1JoD4nUHdxEk3uZDVm6nbyl6gEm89HyOFPnXCjiH+NOmtie2TUHZntp0mYCNVGMBSdB8AnJWe4xIfD3cyIOM3lGfwBAKzqsdbPYYxAFiMoqKji1qrIS2ZkSEm/OLdNYO8iGEyFL1CYVNJB8dBUOwHBD/b6FJ+yDxbtuAFElKAIKNRETH13ZqCBAEb0U6k5o6b3mHkGkjML3JlhjzYftP45H5GYKNvXWvtyqqDOfzpM+sVXxebBbFuBnFM5M9flJcb3GKMwEs6LTsp4R26GC0Ohv9s3Z+iNlTb7T7DG0zmavlWPVcYBygODt8gk+b/vScrkbKbs+01FRJp6bDVK5IhktWGSrpVkZh3Ay1/H0Z/07ShjFjpOKmenaGuw8CKyf9yqOGg05yYwGPMj6uRJ0zp5aX45AqJe2qJ6QmV0DDtFImf+PF5qvx8hrCz3unJC1cqamQsW42o=
