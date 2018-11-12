@@ -8,8 +8,8 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/bin/www",
-            "envFile": "${workspaceFolder}/.env"            
+            "program": "${workspaceFolder}/app/bin/www",
+            "envFile": "${workspaceFolder}/app/.env"
         }
     ]
 }

@@ -2,8 +2,8 @@ const okta = require("@okta/okta-sdk-nodejs");
 const ExpressOIDC = require("@okta/oidc-middleware").ExpressOIDC;
 
 const oktaClient = new okta.Client({
-    orgUrl: 'https://dev-879263.oktapreview.com',
-    token: '008JCBq3v2CxfdNp5NUekrXhUVqzEvpMdNsbGq5SIO'
+    orgUrl: process.env.OKTA_ORG_URL,
+    token: process.env.OKTA_TOKEN
 });
 
 const oidc = new ExpressOIDC({
