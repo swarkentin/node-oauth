@@ -1,0 +1,5 @@
+bucket = "test-terraform-state-sheldon-dev-1"
+dynamodb_table = "TerraformStatelock"
+key = "terraform.tfstate"
+profile = "terraform"
+region = "us-west-2"
