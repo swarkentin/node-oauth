@@ -1,0 +1,4 @@
+variable "ecr-repository-name" {
+  description = "The name of the ECS docker repository"
+  default = "node-oauth"
+}

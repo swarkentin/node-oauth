@@ -1,3 +1,1 @@
-terraform {
-  backend "s3" {}
-}
+../common/backend.tf
