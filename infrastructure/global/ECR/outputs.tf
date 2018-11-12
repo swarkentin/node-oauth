@@ -1,3 +1,3 @@
-output "ecr-arm" {
-  value = "${aws_ecr_repository.arm}
+output "ecr-arn" {
+  value = "${aws_ecr_repository.repository.arn}"
 }
