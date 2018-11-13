@@ -1,0 +1,1 @@
+This provides support for creating an ECS Docker repository

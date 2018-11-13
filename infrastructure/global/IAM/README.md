@@ -1,0 +1,1 @@
+This sets up IAM credentials for ECS
